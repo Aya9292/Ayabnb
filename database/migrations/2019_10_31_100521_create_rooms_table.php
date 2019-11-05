@@ -16,16 +16,16 @@ class CreateRoomsTable extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->string('listing_name');
-            $table->string('summary');
-            $table->string('home_type');
-            $table->string('room_type');
-            $table->tinyInteger('accomodate');
-            $table->tinyInteger('bedroom_count');
-            $table->tinyInteger('bathroom_count');
-            $table->Integer('price');
-            $table->double('latitude', 8, 2);
-            $table->double('longitude', 8, 2);
+            $table->string('listing_name')->nullable();
+            $table->string('summary')->nullable();
+            $table->string('home_type')->nullable();
+            $table->string('room_type')->nullable();
+            $table->tinyInteger('accomodate')->nullable();
+            $table->tinyInteger('bedroom_count')->nullable();
+            $table->tinyInteger('bathroom_count')->nullable();
+            $table->Integer('price')->nullable();
+            $table->double('latitude', 8, 2)->nullable();
+            $table->double('longitude', 8, 2)->nullable();
             $table->timestamps();
             $table->foreign('user_id')
                   ->references('id')->on('users')

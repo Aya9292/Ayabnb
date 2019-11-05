@@ -1,0 +1,45 @@
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 80%;
+}
+.row {
+    justify-content: center;
+}
+
+.form-group input {
+    height: 45px;
+    border: 1px solid #00A699;
+}
+
+div {
+    display: block;
+}
+.btn.btn-normal {
+    border: 1px solid #ff5a5f;
+    background-color: #ff5a5f;
+}
+.btn.btn-facebook {
+    border: 1px solid #3B5998;
+    background-color: #3B5998;
+}
+.btn {
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 9px 27px;
+}
+.btn-block {
+    display: block;
+    white-space: normal;
+    width: 100%;
+}
+.pull-right {
+    float: right !important;
+}
+.forget{
+    color:#00A699;
+}

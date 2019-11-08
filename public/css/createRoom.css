@@ -1,0 +1,110 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+body {
+    color: #565a5c;
+    background-color: #F8F8F8;
+}
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.container{
+    width: 80%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+}
+.panel-default {
+    border-color: #ddd;
+}
+
+
+.panel-default .panel-heading {
+    color: #ffffff;
+    background-color: #00A699;
+    font-size: 18px;
+    font-weight: 400;
+}
+.panel-default {
+    border-color: #ddd;
+}
+.panel-body {
+    padding: 15px;
+}
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+div {
+    display: block;
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+@media (min-width: 992px){
+    .col-md-4 {
+        width: 33.3333333333%;
+    }
+}
+@media (min-width: 992px)
+{
+    .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+        float: left;
+    }
+}
+.form-group select {
+    width: 100%;
+    color: #565a5c;
+    background-color: white;
+    border: 1px solid #00A699;
+    border-radius: 2px;
+    padding: 10px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+.select:before {
+    content: '\25bc';
+    font-size: 1.2em;
+    position: absolute;
+    color: #00A699;
+    top: 35px;
+    right: 30px;
+    transform: scale(0.94, 0.62);
+}
+.clear{
+    clear: left;
+}
+
+.btn.btn-normal {
+    border: 1px solid #ff5a5f;
+    background-color: #ff5a5f;
+}

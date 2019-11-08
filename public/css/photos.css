@@ -1,0 +1,75 @@
+@media (min-width: 992px){
+    .col-md-9 {
+        width: 75%;
+    }
+}
+.sidebar-list {
+    padding-left: 0;
+    list-style: none;
+}
+.sidebar-item {
+    padding: 10px 0;
+    font-size: 16px;
+    color: #82888a;
+}
+.active.sidebar-link {
+    color: #565A5C;
+    font-weight: bold;
+    text-decoration: none;
+}
+.text-babu, .icon-babu {
+    color: #00A699;
+}
+.fa, .fas {
+    font-weight: 900;
+}
+.pull-right {
+    float: right !important;
+}
+.btn.btn-default {
+    width: 100%;
+    border-color: #c4c4c4;
+    background: white;
+    color: #484848;
+    border-radius: 2px;
+    padding: 10px 0;
+    margin-top: 10px;
+}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+.form-group input {
+    height: 45px;
+    border: 1px solid #00A699;
+}
+input[type="file"] {
+    display: block;
+}
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+.row {
+    justify-content: center;
+   
+}
+.btn.btn-default.btn-file.text-babu{
+    padding: 10px 50px;
+}

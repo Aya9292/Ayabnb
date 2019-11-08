@@ -45,13 +45,12 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                       
-                        @guest
                             <li>
-                            <button class="btn btn-form btn-small">
-                                <a style="color: white; text-decoration: none;" href="/rooms/new">Become a host</a>
-                            </button>
+                                <button class="btn btn-form btn-small">
+                                    <a style="color: white; text-decoration: none;" href="/rooms/new">Become a host</a>
+                                </button>
                             </li>
+                        @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -67,14 +66,23 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                    
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
+                                        <ul class="dropdown-menu">
+                                            <li><a href="/rooms">Manage Listing</a></li>
+                                            <li><a href="/rooms/new">List Your Space</a></li>
+                                            <li><a href="/your_reservations">Your Reservations</a></li>
+                                            <li><a href="/your_trips">Your Trips</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="/profile">Edit Profile</a></li>
+                                            <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                                {{ __('Logout') }}
+                                            </a></li>
+                                        </ul>
                                     </form>
                                 </div>
                             </li>

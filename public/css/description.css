@@ -1,0 +1,37 @@
+@media (min-width: 992px){
+    .col-md-9 {
+        width: 75%;
+    }
+}
+.sidebar-list {
+    padding-left: 0;
+    list-style: none;
+}
+.sidebar-item {
+    padding: 10px 0;
+    font-size: 16px;
+    color: #82888a;
+}
+.active.sidebar-link {
+    color: #565A5C;
+    font-weight: bold;
+    text-decoration: none;
+}
+.text-babu, .icon-babu {
+    color: #00A699;
+}
+.fa, .fas {
+    font-weight: 900;
+}
+.pull-right {
+    float: right !important;
+}
+.form-group textarea {
+    border: 1px solid #00A699;
+}
+.btn {
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 9px 27px;
+}

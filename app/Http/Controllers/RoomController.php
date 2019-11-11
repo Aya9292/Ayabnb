@@ -68,6 +68,13 @@ class RoomController extends Controller
         $room = Room::find($id);
         return view('location',compact('room'));
     }
+    public function roomsIndex()
+    {
+        $rooms = auth()->user()->rooms;
+        
+        return view('rooms',compact('rooms'));
+    }
+
 
     public function update($id, Request $request)
     {
@@ -161,3 +168,4 @@ class RoomController extends Controller
         return redirect('/rooms/'.$room->id.'/location');
     }
 }
+

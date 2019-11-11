@@ -21,3 +21,13 @@
 .pull-right {
     float: right !important;
 }
+.active.sidebar-link a:hover {
+    color: #565A5C;
+    font-weight: bold;
+    text-decoration: none;
+}
+.sidebar-item {
+    padding: 10px 0;
+    font-size: 16px;
+    color: #82888a;
+}

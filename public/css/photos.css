@@ -73,3 +73,6 @@ input, button, select, textarea {
 .btn.btn-default.btn-file.text-babu{
     padding: 10px 50px;
 }
+.form-group textarea {
+    border: 1px solid #00A699;
+}

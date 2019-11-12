@@ -38,7 +38,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/rooms/{id}/listing/update','RoomController@update');
     Route::post('/rooms/{id}/pricing/update', 'RoomController@updatePrice');
     Route::post('/rooms/{id}/description/update', 'RoomController@updateDescription');
-    Route::post('/rooms/{id}/photo/update', 'RoomController@updatePhoto');
+    Route::post('/rooms/{id}/photo/update', 'PhotoController@store');
     Route::post('/rooms/{id}/amenities/update', 'RoomController@updateAmenities');
     Route::post('/rooms/{id}/location/update', 'RoomController@updateLocation');
 

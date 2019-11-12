@@ -18,7 +18,7 @@
                     
                     <div class="row">
                         <div class="col-md-2">
-                            <img src="#">
+                            <img src="{{$room->coverPhoto('thumb')}}">
                         </div>
                         <div class="col-md-7">
                             <h4>{{$room->listing_name}}</h4>

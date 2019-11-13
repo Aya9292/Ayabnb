@@ -38,67 +38,20 @@
 <br>
 
 <div class="row">
-        <div class="col-md-4">
+  @foreach($rooms as $room)
+    <div class="col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading preview">
-          <img src="//s3-ap-northeast-1.amazonaws.com/airpikachuue/photos/images/000/000/001/medium/R1_3.jpg?1550990941">
+          <img src="{{$room->coverPhoto('medium')}}">
         </div>
         <div class="panel-body">
-          <a href="/rooms/1">Avida Towers Cebu</a><br>
-          $100 - Apartment - 4 beds
+          <a href="/rooms/1">{{$room->listing_name}}</a><br>
+          ${{$room->price}} - {{$room->house_type}} - {{$room->bedroom_count}} beds
           <div id="star_1" title="bad"><img alt="1" src="/images/star-on.png" title="bad">&nbsp;<img alt="2" src="/images/star-off.png" title="bad">&nbsp;<img alt="3" src="/images/star-off.png" title="bad">&nbsp;<img alt="4" src="/images/star-off.png" title="bad">&nbsp;<img alt="5" src="/images/star-off.png" title="bad"><input name="score" type="hidden" value="1" readonly=""></div> 1 review
         </div>
       </div>
     </div>
-
-    <script>
-      $('#star_1').raty({
-        path: '/images',
-        readOnly: true,
-        score: 1
-      });
-    </script>
-    <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-heading preview">
-          <img src="//s3-ap-northeast-1.amazonaws.com/airpikachuue/photos/images/000/000/007/medium/R3_1.jpg?1550992131">
-        </div>
-        <div class="panel-body">
-          <a href="/rooms/4">Hiro Hotel Tokyo</a><br>
-          $40 - Bed &amp; Breakfast - 1 bed
-          <div id="star_4" title="regular"><img alt="1" src="/images/star-on.png" title="regular">&nbsp;<img alt="2" src="/images/star-on.png" title="regular">&nbsp;<img alt="3" src="/images/star-on.png" title="regular">&nbsp;<img alt="4" src="/images/star-off.png" title="regular">&nbsp;<img alt="5" src="/images/star-off.png" title="regular"><input name="score" type="hidden" value="3" readonly=""></div> 3 reviews
-        </div>
-      </div>
-    </div>
-
-    <script>
-      $('#star_4').raty({
-        path: '/images',
-        readOnly: true,
-        score: 3
-      });
-    </script>
-    <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-heading preview">
-          <img src="//s3-ap-northeast-1.amazonaws.com/airpikachuue/photos/images/000/000/035/medium/R2_1.jpg?1557023600">
-        </div>
-        <div class="panel-body">
-          <a href="/rooms/19">Awesome guest house</a><br>
-          $200 - Apartment - 1 bed
-          <div id="star_19" title="gorgeous"><img alt="1" src="/images/star-on.png" title="gorgeous">&nbsp;<img alt="2" src="/images/star-on.png" title="gorgeous">&nbsp;<img alt="3" src="/images/star-on.png" title="gorgeous">&nbsp;<img alt="4" src="/images/star-on.png" title="gorgeous">&nbsp;<img alt="5" src="/images/star-on.png" title="gorgeous"><input name="score" type="hidden" value="5" readonly=""></div> 5 reviews
-        </div>
-      </div>
-    </div>
-
-    <script>
-      $('#star_19').raty({
-        path: '/images',
-        readOnly: true,
-        score: 5
-      });
-    </script>
-
+    @endforeach
 </div>
 
 <!-- CITIES -->

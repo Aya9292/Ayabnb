@@ -21,30 +21,23 @@
                     <div class="panel-heading">Your Profile</div> 
                 <div class="panel-body">
                     <div class="container">
-                        <form id="edit_user" action="/" accept-charset="UTF-8" method="post" class="edit_user">
-                            <input name="utf8" type="hidden" value="✓">
-                            <input type="hidden" name="_method" value="put">
-                            <input type="hidden" name="authenticity_token" value="byragB6zQQ6QLn88ZlO+7fp55XwKBgaYVJKUq1eVAY72PCu6XqNrx1FnCQu3NjSSgMmyyD7UdEh7SbP2blMbhA=="> 
+                        <form id="edit_user" action="/update/profile" accept-charset="UTF-8" method="post" class="edit_user">
+                        @csrf
+                           <div class="form-group">
+                                <div class="field_with_errors">
+                                    <input autofocus="autofocus" placeholder="Full Name" type="text" value="{{auth()->user()->name}}" name="name" id="user_name" class="form-control">
+                                </div>
+                            </div>
+                            
                             <div class="form-group">
                                 <div class="field_with_errors">
-                                    <input autofocus="autofocus" placeholder="Full Name" type="text" value="" name="user[fullname]" id="user_fullname" class="form-control">
+                                    <input autofocus="autofocus" placeholder="Email" type="email" value="{{auth()->user()->email}}" name="email" id="user_email" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input autofocus="autofocus" placeholder="Phone Number" type="text" value="" name="user[phone_number]" id="user_phone_number" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <textarea rows="5" cols="25" autofocus="autofocus" placeholder="Description" name="user[description]" id="user_description" class="form-control"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <div class="field_with_errors">
-                                    <input autofocus="autofocus" placeholder="Email" type="email" value="" name="user[email]" id="user_email" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input autocomplete="off" placeholder="New Password (leave blank if you don't want to change it)" type="password" name="user[password]" id="user_password" class="form-control"></div>
+                                <input autocomplete="off" placeholder="New Password (leave blank if you don't want to change it)" type="password" name="password" id="user_password" class="form-control"></div>
                                 <div class="form-group">
-                                    <input autocomplete="off" placeholder="Confirm Password" type="password" name="user[password_confirmation]" id="user_password_confirmation" class="form-control"></div>
+                                    <input autocomplete="off" placeholder="Confirm Password" type="password" name="password_confirmation" id="password_confirmation" class="form-control"></div>
                                     <div class="actions">
                                         <input type="submit" name="commit" value="Save" data-disable-with="Save" class="btn btn-normal btn-block">
                                     </div>

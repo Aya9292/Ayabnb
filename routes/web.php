@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/rooms/{id}/location', 'RoomController@location');
 
     Route::post('/room/store', 'RoomController@store');
+    Route::get('/rooms/{id}','RoomController@display');
     Route::post('/rooms/{id}/listing/update','RoomController@update');
     Route::post('/rooms/{id}/pricing/update', 'RoomController@updatePrice');
     Route::post('/rooms/{id}/description/update', 'RoomController@updateDescription');
@@ -45,5 +46,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/rooms', 'RoomController@roomsIndex');
     Route::get('/reservations','ReservationController@reservationsIndex');
     Route::get('/trips', 'ReservationController@tripsIndex');
+
 });
 

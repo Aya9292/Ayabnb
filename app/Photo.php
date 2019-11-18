@@ -32,8 +32,8 @@ class Photo extends Model
                     $constraint->upsize();
                 });
             }
+            Storage::disk('s3')->put("photos/{$this->id}/{$dimension}/{$this->photo}", $image->encode(), 'public');
         }
-        Storage::disk('s3')->put("photos/{$this->id}/{$dimension}/{$this->photo}", $image->encode(), 'public');
     }
     public function path($dimension)
     {

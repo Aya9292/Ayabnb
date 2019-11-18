@@ -53,7 +53,7 @@
                                 <div class="modal-body">
                                     <form class="new_guest_review" id="new_guest_review" action="/guest_reviews" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="jSH8s2EIlXT51VR5dcgKX+HPOxcoI4j1SApKpEpSLJjua5OEOEyIEF7f+oSriwrLc0aDbVRLU7Qjgq2cyYt7Mg==">
                                         <div class="form-group text-center">
-                                        <div id="stars" style="cursor: pointer;"><img alt="1" src="/assets/star-on.png" title="bad">&nbsp;<img alt="2" src="/assets/star-off.png" title="poor">&nbsp;<img alt="3" src="/assets/star-off.png" title="regular">&nbsp;<img alt="4" src="/assets/star-off.png" title="good">&nbsp;<img alt="5" src="/assets/star-off.png" title="gorgeous"><input name="guest_review[star]" type="hidden" value="1"></div>                                        </div>
+                                        <div id="stars" style="cursor: pointer;"><img alt="1" src="/images/star-on.png" title="bad">&nbsp;<img alt="2" src="/images/star-off.png" title="poor">&nbsp;<img alt="3" src="/images/star-off.png" title="regular">&nbsp;<img alt="4" src="/images/star-off.png" title="good">&nbsp;<img alt="5" src="/images/star-off.png" title="gorgeous"><input name="guest_review[star]" type="hidden" value="1"></div>                                        </div>
                                         <div class="form-group">
                                             <textarea rows="3" class="form-control" name="guest_review[comment]" id="guest_review_comment"></textarea>
                                         </div>

@@ -64,3 +64,7 @@ a {
     background-position: center;
     height: 326px;
 }
+
+.panel-heading.preview img {
+    width: 100%;
+}

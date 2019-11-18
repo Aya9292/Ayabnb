@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','HomeController@index');
 
 Auth::routes();
 Route::group(['middleware' => 'auth'], function(){
@@ -46,6 +44,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/rooms', 'RoomController@roomsIndex');
     Route::get('/reservations','ReservationController@reservationsIndex');
     Route::get('/trips', 'ReservationController@tripsIndex');
-
+    Route::get('/profile', 'UserController@index');
+    Route::get('/users/{id}', 'UserController@profile');
 });
 

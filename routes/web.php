@@ -46,5 +46,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/trips', 'ReservationController@tripsIndex');
     Route::get('/profile', 'UserController@index');
     Route::get('/users/{id}', 'UserController@profile');
+    Route::post('/update/profile', 'UserController@update');
 });
 

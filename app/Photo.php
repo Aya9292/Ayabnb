@@ -39,4 +39,7 @@ class Photo extends Model
     {
         return "photos/{$this->id}/{$dimension}/{$this->photo}";
     }
+    public function imgPath($dimension){
+        return Storage::disk('s3')->url($this->path($dimension));
+    }
 }

@@ -167,5 +167,11 @@ class RoomController extends Controller
         ]);
         return redirect('/rooms/'.$room->id.'/location');
     }
+    public function display($id)
+    {
+        $room = Room::find($id);
+        
+        return view('roomDetail',compact('room'));
+    }
 }
 

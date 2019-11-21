@@ -15,12 +15,14 @@
                 </div>
                 <div class="panel-body">
                     <div class="container">
-                        <form class="edit_room" id="edit_room" action="/rooms/{{$room->id}}/locationnv/update" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="gIIm627QjV9falGZ26ygOiXhOG480WsQbT/Voh4IZrKWXi+Zlk0rXykkFIxU28XXKNjAbnzeSyTUVr+NX86h8w==">
+                        <form class="edit_room" id="edit_room" action="/rooms/{{$room->id}}/location/update" method="post">
                         @csrf
                             <div>
                                 <div class="form-group">
-                                    <label>Address</label>
-                                    <input placeholder="What is your address" class="form-control" required="required" type="text" name="room[price]" id="room_price">
+                                    <label>Location</label><br>
+                                    <input id="address_search" name="address_search" type="text" class="form-control" placeholder="Search" value="{{$room->location}}" />
+                                    <input type="hidden" name="lat" id="lat"> 
+                                    <input type="hidden" name="long" id="long">
                                 </div>
                             </div>
                             <div class="text-center">
@@ -33,4 +35,23 @@
         </div>
     </div>
 </div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9MZqWr7E-RoPcd6_lwIcGfQSTbPwSXVs&libraries=places"></script>
+
+<script>
+  google.maps.event.addDomListener(window, 'load', initialize);
+    function initialize() {
+      var input = document.getElementById('address_search');
+      var autocomplete = new google.maps.places.Autocomplete(input);
+      autocomplete.addListener('place_changed', function () {
+      var place = autocomplete.getPlace();
+      // place variable will have all the information you are looking for.
+      $('#lat').val(place.geometry['location'].lat());
+      $('#long').val(place.geometry['location'].lng());
+    });
+  }
+</script>
+
 @endsection

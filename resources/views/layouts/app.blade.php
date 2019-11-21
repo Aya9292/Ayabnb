@@ -36,9 +36,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                    <form class="navbar-form navbar-left" action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+                        <form class="navbar-form navbar-left" action="/filter" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
                             <div class="form-group anywhere">
-                                <input type="text" name="search" id="search" placeholder="Anywhere" class="form-control">
+                                <input id="filter_address" name="location" type="text" class="form-control" placeholder="Search" />
+                                <input type="hidden" name="lat">
+                                <input type="hidden" name="long">                             
                             </div>
                         </form>
                     </ul>
@@ -96,3 +98,24 @@
     </div>
 </body>
 </html>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9MZqWr7E-RoPcd6_lwIcGfQSTbPwSXVs&libraries=places"></script>
+
+<script>
+  google.maps.event.addDomListener(window, 'load', initialize);
+    function initialize() {
+      var input = document.getElementById('filter_address');
+      var autocomplete = new google.maps.places.Autocomplete(input);
+      autocomplete.addListener('place_changed', function () {
+      var place = autocomplete.getPlace();
+      // place variable will have all the information you are looking for.
+      $('#lat').val(place.geometry['location'].lat());
+      $('#long').val(place.geometry['location'].lng());
+    });
+  }
+</script>
+
+@yield('script')

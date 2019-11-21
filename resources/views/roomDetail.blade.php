@@ -3,6 +3,11 @@
 
 <link rel="stylesheet" href="/css/roomDetail.css">
 <link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="/css/filter.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 
 @endsection
 @section('content')
@@ -154,10 +159,7 @@
             <hr>
 
             <!-- GOOGLE MAP -->
-            <div class="row">
-
-                <hr>
-            </div>
+            <div id="map"></div>
             <hr>
 
             <!-- NEAR BY ROOMS -->
@@ -178,14 +180,14 @@
                     <form class="new_reservation" id="new_reservation" action="/rooms/7/reservations" accept-charset="UTF-8" method="post">
                         <input name="utf8" type="hidden" value="✓">
                         <input type="hidden" name="authenticity_token" value="xSuF0wEhEk2ONLkpKGC3eTPGNj//cV/r90Uq9EXsI0xcPXTpQTE4hE99zx75BT0GSXZhi8ujLTvYng2pfCo5Rg==">
-                            <div class="row">
+                            <div class="row">   
                                 <div class="col-md-6">
                                     <label>Check In</label>
-                                    <input readonly="readonly" placeholder="Start Date" class="form-control datepicker hasDatepicker" type="text" name="reservation[start_date]" id="reservation_start_date">
+                                    <input placeholder="Start Date" class="form-control datepicker hasDatepicker" type="text" name="reservation[start_date]" id ="datepicker">
                                 </div>
                                 <div class="col-md-6">
                                     <label>Check Out</label>
-                                    <input readonly="readonly" placeholder="End Date" class="form-control datepicker hasDatepicker" disabled="disabled" type="text" name="reservation[end_date]" id="reservation_end_date">
+                                    <input placeholder="End Date" class="form-control datepicker hasDatepicker" type="text" name="reservation[end_date]" id="dt2">
                                 </div>
                             </div>
                         <h4 class="message-alert text-center"><span id="message"></span></h4>
@@ -214,4 +216,41 @@
             </div>
         </div>
 </div>
+@endsection
+@section('script')
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9MZqWr7E-RoPcd6_lwIcGfQSTbPwSXVs"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+<script>
+
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = {
+                lat: {{$room->latitude}},
+                lng: {{$room->longitude}}
+            };
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 10, center: uluru});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: uluru, map: map});
+  var infoWindow = new google.maps.InfoWindow({
+            content: "<div id='content'><img src='{{ $room->coverPhoto('thumb') }}'></div>"
+        });
+
+        infoWindow.open(map, marker);
+}
+google.maps.event.addDomListener(window, 'load', initMap);
+</script>
+
+<script>
+
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
+
 @endsection

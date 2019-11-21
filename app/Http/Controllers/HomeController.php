@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $rooms = Room::all()->take(3);
+        $rooms = Room::where('is_active',1)->get()->take(3);
         return view('home', compact('rooms'));
     }
    

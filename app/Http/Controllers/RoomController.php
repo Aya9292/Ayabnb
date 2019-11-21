@@ -157,21 +157,52 @@ class RoomController extends Controller
     public function updateLocation($id, Request $request)
     {
         $request->validate([
-            'location' =>'required',
-    
+            'address_search' =>'required',
+        
+                
         ]);
         $room = Room::find($id);
         $room->update([
-            'location' => $request->location,
+            'location' => $request->address_search,
+            'latitude' => $request->lat,
+            'longitude' => $request->long,
             
         ]);
         return redirect('/rooms/'.$room->id.'/location');
     }
+
     public function display($id)
     {
         $room = Room::find($id);
-        
         return view('roomDetail',compact('room'));
+    }
+
+    public function filter(Request $request){
+        $rooms = Room::where('is_active',1)
+                        ->where('location', 'like', '%'.$request->location.'%')
+                        ->when($request->accomodate , function($query) use($request){
+                            $query->where('accomodate', $request->accomodate);
+                        })
+                        ->when($request->bedroom_count, function($query) use($request){
+                            $query->where('bedroom_count', $request->bedroom_count);
+                        })
+                        ->when($request->bathroom_count, function($query) use($request){
+                            $query->where('bathroom_count', $request->bathroom_count);
+                        })
+                        ->get();
+
+       
+        return view('filterPage', compact('rooms'));
+    }
+
+    public function publish($id)
+    {
+       
+        $room = Room::find($id);
+        $room->update([
+            'is_active' => 1
+        ]);
+        return redirect('/home');
     }
 }
 

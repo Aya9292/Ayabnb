@@ -2,6 +2,7 @@
 @section('css')
 <link rel="stylesheet" href="/css/createRoom.css">
 <link rel="stylesheet" href="/css/description.css">
+<link rel="stylesheet" href="/css/roomMenu.css">
 
 @endsection
 @section('content')

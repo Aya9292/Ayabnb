@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="/css/createRoom.css">
 <link rel="stylesheet" href="/css/roomMenu.css">
 
+
 @endsection
 @section('content')
 <div class="container">
@@ -11,7 +12,7 @@
         <div class="col-9">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Create your beautiful place
+                   Listing
                 </div>
                 <div class="panel-body">
                     <div class="container">

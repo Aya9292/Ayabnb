@@ -72,7 +72,13 @@ input, button, select, textarea {
 }
 .btn.btn-default.btn-file.text-babu{
     padding: 10px 50px;
+    color: #fff;
 }
 .form-group textarea {
     border: 1px solid #00A699;
+}
+
+body{
+    font-family: 'Hiragino Maru Gothic Pro';
+    color: #565a5c;
 }

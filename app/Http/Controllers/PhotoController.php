@@ -19,6 +19,6 @@ class PhotoController extends Controller
 
         $photo->resizeAndSavePhoto($file);
 
-        return 'success';
+        return redirect('/rooms/'.$room->id.'/photo');
     }
 }

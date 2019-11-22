@@ -20,3 +20,7 @@ a {
 .form-group textarea {
     border: 1px solid #00A699;
 }
+body{
+    font-family: 'Hiragino Maru Gothic Pro';
+    color: #565a5c;
+}

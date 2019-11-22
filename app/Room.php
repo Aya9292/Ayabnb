@@ -24,4 +24,12 @@ class Room extends Model
     {
         return $this->photos->count() > 0 ? Storage::disk('s3')->url($this->photos[0]->path($dimension)) : '' ;
     }
+    public function isReady()
+    {
+        return $this->price && $this->listing_name && $this->location && $this->photos->count() > 0;
+    }
+    public function reservations()
+    {
+        return $this->hasMany ('App\Reservation');
+    }
 }

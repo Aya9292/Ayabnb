@@ -247,10 +247,15 @@ p {
 .btn.btn-normal {
     border: 1px solid #ff5a5f;
     background-color: #ff5a5f;
+    color: #fff;
 }
 .avatar-medium {
     width: 40%;
 }
 .panel-default {
     border-color: #ddd;
+}
+body{
+    font-family: 'Hiragino Maru Gothic Pro';
+    color: #565a5c;
 }

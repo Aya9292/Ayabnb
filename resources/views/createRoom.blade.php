@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('css')
 <link rel="stylesheet" href="/css/createRoom.css">
+<link rel="stylesheet" href="/css/roomMenu.css">
 @endsection
 
 @section('content')

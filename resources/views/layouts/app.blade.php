@@ -10,8 +10,7 @@
     <title>{{ config('app.name', 'Ayabnb') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="{{ asset('js/app.js')}}"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -99,8 +98,7 @@
 </body>
 </html>
 
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+@yield('script')
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9MZqWr7E-RoPcd6_lwIcGfQSTbPwSXVs&libraries=places"></script>
 
@@ -118,4 +116,3 @@
   }
 </script>
 
-@yield('script')

@@ -28,4 +28,8 @@ class Room extends Model
     {
         return $this->price && $this->listing_name && $this->location && $this->photos->count() > 0;
     }
+    public function reservations()
+    {
+        return $this->hasMany ('App\Reservation');
+    }
 }

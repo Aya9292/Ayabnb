@@ -1,38 +1,42 @@
 @extends('layouts.app')
 @section('css')
 <link rel="stylesheet" href="/css/home.css">
+
+<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
 @endsection
 @section('content')
 <div class="container">
-            <div class="row">
-  <div class="col-md-7 banner">
-    <h1><span class="text-red">Ayabnb</span> Book unique homes and experience a city like a local.</h1>
+  <div class="row">
+    <div class="col-md-7 banner">
+      <h1><span class="text-red">Ayabnb</span> Book unique homes and experience a city like a local.</h1>
+    </div>
   </div>
-</div>
+  <form action="/filter" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+      <div class="row">
+          <div class="col-md-6">
+            <input type="text" name="location" id="search_address" placeholder="Where are you going?" class="form-control" autocomplete="off">
+            <input type="hidden" name="lat">
+            <input type="hidden" name="long">  
+          </div>
+          <div class="col-md-3">
+            <input placeholder="Start Date" class="form-control" type="text" name="start_date" id="datepicker-3">
+          </div>
+          <div class="col-md-3">
+            <input placeholder="End Date" class="form-control" type="text" name="end_date" id="datepicker-4">
+          </div>
+      </div>
 
+      <br><br>
 
-<form action="/filter" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
-    <div class="row">
-        <div class="col-md-6">
-          <input type="text" name="location" id="search_address" placeholder="Where are you going?" class="form-control" autocomplete="off">
-          <input type="hidden" name="lat">
-          <input type="hidden" name="long">  
-        </div>
-        <div class="col-md-3">
-        <input type="text" name="start_date" id="start_date" placeholder="Start Date" class="form-control datepicker hasDatepicker">
-        </div>
-        <div class="col-md-3">
-        <input type="text" name="end_date" id="end_date" placeholder="End Date" class="form-control datepicker hasDatepicker">
-        </div>
-    </div>
-    <br><br>
-
-    <div class="row">
-        <div class="col-md-offset-4 col-md-4">
-            <input type="submit" name="commit" value="Search" class="btn btn-normal btn-block" data-disable-with="Search">
-        </div>
-    </div>
-</form>
+      <div class="row">
+          <div class="col-md-offset-4 col-md-4">
+              <input type="submit" name="commit" value="Search" class="btn btn-normal btn-block" data-disable-with="Search">
+          </div>
+      </div>
+  </form>
 
 
 <br><hr><br>
@@ -48,7 +52,7 @@
         <div class="panel-heading preview">
           <img src="{{$room->coverPhoto('medium')}}">
         </div>
-        <div class="panel-body">
+        <div class="panel-body border">
           <a href="/rooms/{{$room->id}}">{{$room->listing_name}}</a><br>
           ${{$room->price}} - {{$room->house_type}} - {{$room->bedroom_count}} beds
           <div id="star_1" title="bad"><img alt="1" src="/images/star-on.png" title="bad">&nbsp;<img alt="2" src="/images/star-off.png" title="bad">&nbsp;<img alt="3" src="/images/star-off.png" title="bad">&nbsp;<img alt="4" src="/images/star-off.png" title="bad">&nbsp;<img alt="5" src="/images/star-off.png" title="bad"><input name="score" type="hidden" value="1" readonly=""></div> 1 review
@@ -87,31 +91,17 @@
 @endsection
 @section('script')
 <script>
-    $('#start_date').datepicker({
-        dateFormat: 'dd-mm-yy',
-        minDate: 0,
-        maxDate: '3m',
-        onSelect: function(selected) {
-            $('#end_date').datepicker("option", "minDate", selected);
-            $('#end_date').attr("disabled", false);
-        }
+  $(function() {
+    $( "#datepicker-3" ).datepicker({
+        dateFormat:"yy-mm-dd",
     });
-
-    $('#end_date').datepicker({
-        dateFormat: 'dd-mm-yy',
-        minDate: 0,
-        maxDate: '3m',
-        onSelect: function(selected) {
-            $('#start_date').datepicker("option", "maxDate", selected);
-        }
+    $( "#datepicker-4" ).datepicker({
+        dateFormat:"yy-mm-dd",
     });
-
-    $(function(){
-      $("#autolocation").geocomplete();
-    })
+  });
 </script>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9MZqWr7E-RoPcd6_lwIcGfQSTbPwSXVs&libraries=places"></script>
 
 <script>
   google.maps.event.addDomListener(window, 'load', initialize);
@@ -126,5 +116,6 @@
     });
   }
 </script>
+
 
 @endsection

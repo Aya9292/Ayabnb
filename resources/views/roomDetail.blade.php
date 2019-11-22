@@ -4,11 +4,11 @@
 <link rel="stylesheet" href="/css/roomDetail.css">
 <link rel="stylesheet" href="/css/home.css">
 <link rel="stylesheet" href="/css/filter.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-
+<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      
 @endsection
 @section('content')
 <div class="container">
@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <h1>{{$room->listing_name}}</h1>
-                    Los Angeles, カリフォルニア州 アメリカ合衆国
+                    {{$room->location}}
                 </div>
                 <div class="col-md-4 text-center">
                     <img class="img-circle avatar-large"><br><br>
@@ -177,17 +177,17 @@
                     <span class="pull-right">Per Night</span>
                 </div>
                 <div class="panel-body">
-                    <form class="new_reservation" id="new_reservation" action="/rooms/7/reservations" accept-charset="UTF-8" method="post">
-                        <input name="utf8" type="hidden" value="✓">
-                        <input type="hidden" name="authenticity_token" value="xSuF0wEhEk2ONLkpKGC3eTPGNj//cV/r90Uq9EXsI0xcPXTpQTE4hE99zx75BT0GSXZhi8ujLTvYng2pfCo5Rg==">
+                    <form class="new_reservation" id="new_reservation" action="/rooms/{{$room->id}}/reservations" accept-charset="UTF-8" method="post">
+                    @csrf
+                     
                             <div class="row">   
                                 <div class="col-md-6">
-                                    <label>Check In</label>
-                                    <input placeholder="Start Date" class="form-control datepicker hasDatepicker" type="text" name="reservation[start_date]" id ="datepicker">
+                                    <label>Check In</label> 
+                                    <input placeholder="Start Date" class="form-control" type="text" name="start_date" id="datepicker-3">
                                 </div>
                                 <div class="col-md-6">
                                     <label>Check Out</label>
-                                    <input placeholder="End Date" class="form-control datepicker hasDatepicker" type="text" name="reservation[end_date]" id="dt2">
+                                    <input placeholder="End Date" class="form-control" type="text" name="end_date" id="datepicker-4">
                                 </div>
                             </div>
                         <h4 class="message-alert text-center"><span id="message"></span></h4>
@@ -219,10 +219,6 @@
 @endsection
 @section('script')
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9MZqWr7E-RoPcd6_lwIcGfQSTbPwSXVs"></script>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
-<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
 <script>
 
 // Initialize and add the map
@@ -244,13 +240,39 @@ function initMap() {
         infoWindow.open(map, marker);
 }
 google.maps.event.addDomListener(window, 'load', initMap);
+</script> 
+ <script>
+    $(function() {
+    $( "#datepicker-3" ).datepicker({
+        dateFormat:"yy-mm-dd",
+    });
+    $( "#datepicker-4" ).datepicker({
+        dateFormat:"yy-mm-dd",
+    });
+    });
+    function checkPreview(){
+        var start_date = $.datepicker.formatDate('yy-mm-dd', $('#datepicker-3').datepicker('getDate'));
+        var end_date = $.datepicker.formatDate('yy-mm-dd', $('#datepicker-4').datepicker('getDate'));
+        var nights = (new Date(end_date) - new Date(start_date))/1000/60/60/24 + 1; 
+        var total = nights * {{ $room->price }};
+        if(total){
+            $('#reservation_nights').text(nights);
+            $('#reservation_total').text(total);
+            $('#preview').show();
+            $('#btn_book').attr('disabled', false);
+        }
+       
+
+    }
+
+    $('#datepicker-3').on('change', function(){
+        checkPreview()
+    })
+
+    $('#datepicker-4').on('change', function(){
+        checkPreview()
+    })
+
+
 </script>
-
-<script>
-
-  $( function() {
-    $( "#datepicker" ).datepicker();
-  } );
-  </script>
-
 @endsection

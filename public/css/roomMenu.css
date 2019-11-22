@@ -34,3 +34,13 @@
 h4{
     padding-left: 15px;
 }
+body{
+    font-family: 'Hiragino Maru Gothic Pro';
+    color: #565a5c;
+}
+.sidebar-item{
+    font-size: 15px;
+}
+.btn{
+    font-size: 15px;
+}

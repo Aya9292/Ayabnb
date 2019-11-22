@@ -144,3 +144,8 @@ a {
 .textarea{
   color:green;  
 }
+
+body{
+    font-family: 'Hiragino Maru Gothic Pro';
+    color: #565a5c;
+}

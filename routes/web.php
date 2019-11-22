@@ -49,5 +49,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/update/profile', 'UserController@update');
     Route::get('/filter', 'RoomController@filter');
     Route::post('/rooms/{id}/publish', 'RoomController@publish');
+    Route::post('/rooms/{id}/reservations', 'ReservationController@store');
 });
 

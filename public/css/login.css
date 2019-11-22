@@ -21,10 +21,12 @@ div {
 .btn.btn-normal {
     border: 1px solid #ff5a5f;
     background-color: #ff5a5f;
+    color: #fff;
 }
 .btn.btn-facebook {
     border: 1px solid #3B5998;
     background-color: #3B5998;
+    color: #fff;
 }
 .btn {
     color: #fff;
@@ -42,4 +44,9 @@ div {
 }
 .forget{
     color:#00A699;
+}
+
+body{
+    font-family: 'Hiragino Maru Gothic Pro';
+    color: #565a5c;
 }
